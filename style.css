@@ -1,6 +1,7 @@
 /* Team2: jungle sprint2 */
 /* style.css */
 
+/* 공통 스타일 */
 html, body { margin: 0; padding: 0; height: 100%; }
 .header {
     width: 100%; height: 15%;
