@@ -16,6 +16,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+a:hover {
+    text-decoration: none;
+}
 
 /* 회원가입 폼 컨테이너 */
 .form-container {
@@ -143,3 +146,62 @@ a {
         padding: 20px 0;
     }
 }
+
+/* 마이페이지 css */
+.middle-div {
+  display: flex;              /* 좌우 배치 */
+  gap: 20px;                  /* 사이 간격 */
+  margin: 80px 100px;
+}
+
+/* 왼쪽 사이드바 */
+.sidebar {
+  width: 250px;               /* 사이드바 고정 너비 */
+  flex-shrink: 0;             /* 줄어들지 않게 */
+}
+
+/* 오른쪽 콘텐츠 */
+.content {
+  flex: 1;  
+  
+}
+
+.reservation-box {
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px 20px;
+    border-radius: 12px;
+    margin: 15px 0 100px 0;
+}
+#welcome-ment {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.card-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.reservation-card {
+  display: flex;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  margin: 20px 15px;
+  width: 600px; 
+  height: 120px; 
+}
+.left-box {
+  width: 120px; 
+  border-right: 0.5px solid black;
+background: url('https://i.namu.wiki/i/nhKvnqKXbs7dbPMggKos010RqfYHxUoKgd4GOPjaN8HICce5HXZo6_zAQJPO8SNd-tMEthvTehq7ef-jzuRoww.svg') center/80% no-repeat;
+}
+.right-box {
+  flex: 1;
+  display: flex;
+  align-items: center; 
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+
