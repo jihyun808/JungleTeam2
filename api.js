@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // 뉴스 데이터 가져오기 함수
     function loadNews() {
-        const newsContainer = document.getElementById('news-container');
+        const newsContainer = document.getElementById('grid.grid-cols-1.md:grid-cols-3.gap-6');
         
         // 로딩 표시
         newsContainer.innerHTML = '<div class="col-12"><div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div></div>';
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 백업용 뉴스 데이터 (RSS가 실패할 경우 사용)
 function loadBackupNews() {
-    const newsContainer = document.getElementById('news-container');
+    const newsContainer = document.getElementById('grid.grid-cols-1.md:grid-cols-3.gap-6');
     const backupNews = [
         {
             title: "'100승 감독' 김태형, 롯데와 3년 24억원 계약",
