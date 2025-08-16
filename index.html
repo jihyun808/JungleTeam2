@@ -1,36 +1,162 @@
-<!-- Team2: jungle sprint2-->
-<!-- index.html -->
-
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>정글 - 스프린트2</title>
-        <link rel="stylesheet" href="style.css" />
-        <script src="auth.js" defer></script>
-        <link href="폰트" rel="stylesheet">
-    </head>
-    <body>
-        <header class="header" style="display: inline-flex; justify-content: space-between; align-items: center;">
-            <h1>이름 및 로고</h1>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </header>
-        <hr />
-        <nav class="nav">
-            <span class="myPage">
-                <a href="signup.html">회원가입</a>
-                <a href="login.html">로그인</a>
-            </span>
-        </nav>
-        <section class="section">section
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time-pitch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-        </section>
-        <aside class="aside">aside</aside>
-        <footer class="footer">footer</footer>
-    </body>
+    <!-- 상단 헤더 -->
+    <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
+        <h1 class="h4 m-0">
+            <a href="/" class="text-decoration-none text-dark">time-pitch</a>
+        </h1>
+        <button class="btn btn-outline-secondary" type="button">
+            <i class="bi bi-search"></i>
+        </button>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">예매</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="container-fluid mt-4">
+        <div class="row">
+            <!-- 왼쪽 사이드바 -->
+            <aside class="col-md-3">
+                <div class="p-3 mb-3 bg-light rounded">
+                    <h4 class="fst-italic">KBO 구단 순위</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li>1. KIA 타이거즈</li>
+                        <li>2. LG 트윈스</li>
+                        <li>3. 두산 베어스</li>
+                        <li>4. 삼성 라이온즈</li>
+                        <li>5. SSG 랜더스</li>
+                        <li>6. NC 다이노스</li>
+                        <li>7. KT 위즈</li>
+                        <li>8. 롯데 자이언츠</li>
+                        <li>9. 한화 이글스</li>
+                        <li>10. 키움 히어로즈</li>
+                    </ol>
+                </div>
+
+                <div class="p-3 bg-light rounded">
+                    <h4 class="fst-italic">KBO 선수 순위</h4>
+                    <p class="mb-1"><strong>타율:</strong> 1. 홍창기 (LG) - 0.350</p>
+                    <p class="mb-1"><strong>홈런:</strong> 1. 최정 (SSG) - 29개</p>
+                    <p class="mb-1"><strong>다승:</strong> 1. 페디 (NC) - 20승</p>
+                    <p class="mb-1"><strong>평균자책점:</strong> 1. 안우진 (키움) - 2.05</p>
+                </div>
+            </aside>
+
+            <!-- 오른쪽 메인 컨텐츠 -->
+            <div class="col-md-9">
+                <!-- 상단 배너 캐러셀 -->
+                <div id="bannerCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <div class="banner p-5 text-white">
+                                <h2>암표는 범죄입니다!</h2>
+                                <p>올바른 스포츠 문화를 함께 만들어갑시다. time-pitch는 클린 예매 문화를 지향합니다.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="alert alert-info p-5" role="alert">
+                              <h4 class="alert-heading">Time-Pitch만의 공정한 예매 시스템</h4>
+                              <p>저희 time-pitch는 암표 문제와 트래픽 과부하를 해결하기 위해, 구역별로 3분의 간격을 두고 순차적으로 티켓 예매를 오픈합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!-- 오늘 경기 예매 -->
+                <div class="booking-section mb-4">
+                    <h3>오늘의 경기 예매</h3>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">잠실: LG 트윈스 vs 두산 베어스</h5>
+                                <small class="text-muted">2025년 8월 16일 18:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">예매하기</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">문학: SSG 랜더스 vs KIA 타이거즈</h5>
+                                <small class="text-muted">2025년 8월 16일 18:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">예매하기</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">고척: 키움 히어로즈 vs KT 위즈</h5>
+                                <small class="text-muted">2025년 8월 16일 18:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">예매하기</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">대구: 삼성 라이온즈 vs NC 다이노스</h5>
+                                <small class="text-muted">2025년 8월 16일 18:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">예매하기</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">대전: 한화 이글스 vs 롯데 자이언츠</h5>
+                                <small class="text-muted">2025년 8월 16일 18:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">예매하기</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 최신 KBO 기사 -->
+                <div>
+                    <h3>KBO 최신 뉴스</h3>
+                    <div id="news-container" class="row">
+                        <!-- 뉴스는 script.js에서 동적으로 채워집니다. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
 </html>
