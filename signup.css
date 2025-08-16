@@ -151,7 +151,7 @@ a:hover {
 .middle-div {
   display: flex;              /* 좌우 배치 */
   gap: 20px;                  /* 사이 간격 */
-  margin: 80px 100px;
+  margin: 50px 100px 100px 100px; /* 상하 여백 */
 }
 
 /* 왼쪽 사이드바 */
@@ -187,14 +187,19 @@ a:hover {
   display: flex;
   border: 0.5px solid black;
   border-radius: 5px;
-  margin: 20px 15px;
+  margin: 30px 15px;
   width: 600px; 
   height: 120px; 
 }
-.left-box {
+.left-box2 {
   width: 120px; 
   border-right: 0.5px solid black;
 background: url('https://i.namu.wiki/i/nhKvnqKXbs7dbPMggKos010RqfYHxUoKgd4GOPjaN8HICce5HXZo6_zAQJPO8SNd-tMEthvTehq7ef-jzuRoww.svg') center/80% no-repeat;
+}
+.left-box1 {
+  width: 120px; 
+  border-right: 0.5px solid black;
+  background: url('https://i.namu.wiki/i/B9hIQukP-418N9W-5o6WddUuxmemYuBIZ65-xMHmRK4hDhipAtFQikphYYlBJ7lr3z0POdWs4n1azM-KOHe3qQ.svg') center/80% no-repeat;
 }
 .right-box {
   flex: 1;
@@ -202,6 +207,9 @@ background: url('https://i.namu.wiki/i/nhKvnqKXbs7dbPMggKos010RqfYHxUoKgd4GOPjaN
   align-items: center; 
   padding-left: 15px;
   font-size: 18px;
+}
+.right-box {
+    justify-content: space-between;
 }
 
 
