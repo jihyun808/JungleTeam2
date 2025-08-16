@@ -255,19 +255,4 @@ function updateBanner() {
     }
 }
 
-// 5. 예매 버튼 클릭 이벤트
-document.addEventListener('DOMContentLoaded', function() {
-    const bookingButtons = document.querySelectorAll('[class*="bg-blue-600"]:not([disabled])');
-    
-    bookingButtons.forEach(button => {
-        if (button.textContent.includes('예매하기')) {
-            button.addEventListener('click', function() {
-                alert('예매 페이지로 이동합니다.');
-                // 실제로는 예매 페이지로 리디렉션
-                // window.location.href = '/booking';
-            });
-        }
-    });
-});
-
 console.log('API 및 크롤링 JavaScript 로드 완료');
