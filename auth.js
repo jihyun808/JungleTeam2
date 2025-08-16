@@ -38,14 +38,6 @@
         document.querySelectorAll('button, a').forEach(el => {
           const t = (el.textContent || '').trim();
           if (t.includes('예매하기')) {
-            // a면 href 교체, button이면 클릭시 이동
-            if (el.tagName.toLowerCase() === 'a') {
-              el.setAttribute('href', '/booking');
-            } else {
-              el.addEventListener('click', () => {
-                window.location.href = '/booking';
-              });
-            }
           }
         });
       });
