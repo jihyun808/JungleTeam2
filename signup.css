@@ -11,6 +11,12 @@ body > .middle-object {
     gap: 20px;
 }
 
+/* 앵커태그 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* 회원가입 폼 컨테이너 */
 .form-container {
     background: white;
