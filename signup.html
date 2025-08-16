@@ -61,10 +61,12 @@
     <div class="middle-object">
         <div class="form-container">
             <h2>회원가입</h2>
-            <form id="signup-form" method="POST" action="signup.php">
-                <input id="signup-email" name="email" type="email" placeholder="아이디" required>
-                <input id="signup-password" name="password" type="password" placeholder="비밀번호" required>
+            <form id="signup-form" method="POST">
+                <input id="signup-email" name="email" type="id" placeholder="아이디">
+                <input id="signup-password" name="password" type="password" placeholder="비밀번호">
+                <input id="signup-nickname" name="nickname" type="nickname" placeholder="닉네임">
                 <button type="submit">가입하기</button>
+                <!-- 아이디랑 닉네임은 중복 안되게 -->
             </form>
         </div>
         <div class="other-sign">
