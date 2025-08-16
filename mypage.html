@@ -58,16 +58,23 @@
         </div>
     </header>
 
-    <div class="middle-object">
-        <div class="form-container">
-            <h2>카카오로 시작하기</h2>
-            <form id="signup-form" method="POST">
-                <input id="signup-nickname" name="nickname" type="nickname" placeholder="닉네임">
-                <button type="submit" style="color: black; background: #FEE500;"><a href="/signup_nickname">가입하기</a></button>
-                <!-- 아이디랑 닉네임은 중복 안되게 -->
-            </form>
-        </div>
+    <div class="flex">
+    <!-- 상단 닉네임 -->
+    <h2><span id="welcome-ment">사용자</span>님의 예약정보</h2>
+    <!-- 카드 영역 -->
+    <div class="reservation-container">
+        <!-- 예매 내역 삽입 -->
     </div>
+
+    <!-- 개인정보/설정 -->
+    <div class="settings-section">
+        <h3>개인정보 설정</h3>
+        <button class="setting-btn">프로필 수정</button>
+        <button class="setting-btn">비밀번호 변경</button>
+        <button class="setting-btn">회원 탈퇴</button>
+    </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 mt-16">
