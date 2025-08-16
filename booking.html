@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>경기 예매 - Time-Pitch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+  <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <!-- Logo Section -->
+      <div class="flex items-center justify-between mb-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h18M4 8h16M6 13h12M9 18h6" />
+            </svg>
+          </div>
+          <span class="font-bold text-lg">Time‑Pitch</span>
+        </a>
+      </div>
+      <!-- Navigation Section -->
+      <nav class="flex items-center justify-between text-sm">
+          <!-- Left side -->
+          <div class="flex items-center gap-2">
+              <a href="index.html" class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">홈</a>
+              <a href="booking.html" class="text-base px-3 py-2 rounded-md bg-blue-100 text-blue-700 font-semibold">예매</a>
+          </div>
+          <!-- Right side -->
+          <div class="flex items-center gap-6">
+              <button class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                  </svg>
+                  로그인
+              </button>
+              <button class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  </svg>
+                  마이페이지
+              </button>
+          </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold">경기 예매</h1>
+      <p class="text-gray-600">원하시는 날짜와 경기를 선택하세요.</p>
+    </div>
+
+    <!-- 필터 -->
+    <div class="grid md:grid-cols-4 gap-4 mb-6">
+      <div>
+        <label class="block text-sm font-medium mb-1">구단</label>
+        <select id="teamFilter" class="w-full border rounded-lg p-2">
+          <option value="">전체</option>
+          <option>LG 트윈스</option>
+          <option>두산 베어스</option>
+          <option>롯데 자이언츠</option>
+          <option>KIA 타이거즈</option>
+          <option>삼성 라이온즈</option>
+          <option>SSG 랜더스</option>
+          <option>KT 위즈</option>
+          <option>키움 히어로즈</option>
+          <option>NC 다이노스</option>
+          <option>한화 이글스</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">구장</label>
+        <select id="stadiumFilter" class="w-full border rounded-lg p-2">
+          <option value="">전체</option>
+          <option>잠실</option><option>사직</option><option>고척</option>
+          <option>대전</option><option>광주</option><option>수원</option>
+          <option>창원</option><option>대구</option><option>문학</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">날짜</label>
+        <input id="dateFilter" type="date" class="w-full border rounded-lg p-2"/>
+      </div>
+      <div class="flex items-end">
+        <button id="resetFilters" class="w-full border rounded-lg p-2 hover:bg-gray-100">초기화</button>
+      </div>
+    </div>
+
+    <!-- 경기 리스트 -->
+    <div id="scheduleList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </main>
+
+  <script src="js/booking.js"></script>
+</body>
+</html>

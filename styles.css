@@ -1,0 +1,4 @@
+
+/* Tiny tweaks for booking page */
+:root { --radius: 12px; }
+.card { border-radius: var(--radius); }
