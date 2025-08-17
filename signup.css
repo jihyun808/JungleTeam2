@@ -11,6 +11,16 @@ body > .middle-object {
     gap: 20px;
 }
 
+body > .nickname-middle {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px); /* 헤더/푸터 공간 확보 */
+    gap: 20px;
+}
+
 /* 앵커태그 */
 a {
     text-decoration: none;
@@ -187,8 +197,8 @@ a:hover {
   display: flex;
   border: 0.5px solid black;
   border-radius: 5px;
-  margin: 30px 15px;
-  width: 600px; 
+  margin: 30px 20px;
+  width: 550px; 
   height: 120px; 
 }
 .left-box2 {
@@ -205,11 +215,9 @@ background: url('https://i.namu.wiki/i/nhKvnqKXbs7dbPMggKos010RqfYHxUoKgd4GOPjaN
   flex: 1;
   display: flex;
   align-items: center; 
-  padding-left: 15px;
   font-size: 18px;
-}
-.right-box {
-    justify-content: space-between;
+  justify-content: space-between;
+  margin: 0 15px;
 }
 
 
