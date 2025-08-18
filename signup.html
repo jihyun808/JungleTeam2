@@ -61,24 +61,26 @@
       </div>
   </header>
 
-    <div class="middle-object">
-        <div class="form-container">
-            <h2>회원가입</h2>
-            <form id="signup-form" method="POST">
-                <input id="signup-email" name="email" type="id" placeholder="아이디">
-                <input id="signup-password" name="password" type="password" placeholder="비밀번호">
-                <button type="submit"><a href="/signup_nickname.html">가입하기</a></button>
-                <!-- 아이디랑 닉네임은 중복 안되게 -->
-            </form>
-        </div>
-        
+   <div class="middle-object">
+      <div class="form-container">
+        <h2>회원가입</h2>
+        <form id="signup-form" method="POST">
+          <input id="signup-email" name="email" type="text" placeholder="아이디">
+          <input id="signup-password" name="password" type="password" placeholder="비밀번호">
 
-        <div class="other-sign">
-            <button class="signup-kakao" type="button"><a href="/signup_nickname">
-                카카오로 시작하기
-            </a></button>
-        </div>
-    </div>
+          <!-- 파란 가입하기 버튼 -->
+          <button type="submit" class="submit-btn">가입하기</button>
+        </form>
+
+        <!-- 구분선 -->
+        <div class="divider"><span>또는</span></div>
+
+        <!-- 카카오 버튼 (중첩된 a 제거, onclick으로 이동 처리) -->
+        <button class="signup-kakao" type="button" onclick="location.href='/signup_nickname.html'">
+          카카오로 시작하기
+        </button>
+      </div>
+   </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 mt-16">
