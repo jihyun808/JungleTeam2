@@ -57,7 +57,7 @@
                 </div>
                 <!-- Right side -->
                 <div class="flex items-center gap-6">
-                    <a href="/login" class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 text-sm">
+                    <a href="/signin" class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
                         로그인
                     </a>
@@ -136,7 +136,7 @@
                             <div class="max-w-2xl">
                                 <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">구역별 순차 오픈으로 공정한 예매</h2>
                                 <p class="text-lg md:text-xl opacity-90">4개 구역을 3분 간격으로 오픈하여 트래픽을 분산시키고 모두에게 공평한 기회를 제공합니다.</p>
-                                <a href="booking.html" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
+                                <a href="/booking" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                             <div class="max-w-2xl">
                                 <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">매크로와 다중 구매 방지</h2>
                                 <p class="text-lg md:text-xl opacity-90">서버 안정성과 공정성을 확보하여, 진정한 팬들이 티켓을 구매할 수 있는 환경을 만듭니다.</p>
-                                <a href="booking.html" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
+                                <a href="/booking" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                             <div class="flex items-center gap-2 justify-center"><img src="로고 사진 폴더/삼성라이온즈 로고.png" class="w-6 h-6"><span class="font-bold text-base">삼성 라이온즈</span></div>
                         </div>
                         <div class="pt-3">
-                            <a href="/seat?stadium=광주" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
+                            <a href="/select_area?stadium=광주" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
                         </div>
                     </div>
                     <!-- 경기 2 -->
@@ -187,7 +187,7 @@
                             <div class="flex items-center gap-2 justify-center"><img src="로고 사진 폴더/두산 로고.png" class="w-6 h-6"><span class="font-bold text-base">두산 베어스</span></div>
                         </div>
                         <div class="pt-3">
-                            <a href="/seat?stadium=잠실" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
+                            <a href="/select_area?stadium=잠실" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
                         </div>
                     </div>
                     <!-- 경기 3 -->
@@ -199,7 +199,7 @@
                             <div class="flex items-center gap-2 justify-center"><img src="로고 사진 폴더/롯데_자이언츠_로고.png" class="w-6 h-6"><span class="font-bold text-base">롯데 자이언츠</span></div>
                         </div>
                         <div class="pt-3">
-                            <a href="/seat?stadium=대전" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
+                            <a href="/select_area?stadium=대전" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
                         </div>
                     </div>
                     <!-- 경기 4 -->
@@ -211,7 +211,7 @@
                             <div class="flex items-center gap-2 justify-center"><img src="로고 사진 폴더/엔씨 로고.png" class="w-6 h-6"><span class="font-bold text-base">NC 다이노스</span></div>
                         </div>
                         <div class="pt-3">
-                            <a href="/seat?stadium=문학" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
+                            <a href="/select_area?stadium=문학" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
                         </div>
                     </div>
                     <!-- 경기 5 -->
@@ -223,7 +223,7 @@
                             <div class="flex items-center gap-2 justify-center"><img src="로고 사진 폴더/KT 로고.png" class="w-6 h-6"><span class="font-bold text-base">KT 위즈</span></div>
                         </div>
                         <div class="pt-3">
-                            <a href="/seat?stadium=고척" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
+                            <a href="/select_area?stadium=고척" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md font-medium">예매하기</a>
                         </div>
                     </div>
                 </div>
@@ -328,7 +328,7 @@
                 <div>
                     <h4 class="font-bold mb-4">서비스</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#booking" class="hover:text-white transition-colors">티켓 예매</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">티켓 예매</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">구단 순위</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">선수 기록</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">경기 일정</a></li>
