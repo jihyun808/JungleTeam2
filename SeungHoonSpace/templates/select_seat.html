@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>좌석 배치도 - Time-Pitch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .seat {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #a3a3a3;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .seat.available {
+      background-color: #fecaca;
+      /* red-200 */
+    }
+
+    .seat.available:hover {
+      background-color: #f87171;
+      /* red-400 */
+    }
+
+    .seat.taken {
+      background-color: transparent;
+      border-color: #d4d4d4;
+      cursor: not-allowed;
+    }
+
+    .seat.selected {
+      background-color: #60a5fa;
+      /* blue-400 */
+      border-color: #2563eb;
+      /* blue-600 */
+    }
+
+    .next-button {
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gray-100">
+  <!-- Header Navigation -->
+  <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50">
+    <!-- ... (Standard Header HTML) ... -->
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Ground Bar -->
+    <div class="w-full bg-green-300 text-center py-2 mb-8 rounded-md">
+      <p class="text-2xl font-bold text-white tracking-widest">GROUND</p>
+    </div>
+
+    <!-- Seat Map Container -->
+    <div id="seat-map-container" class="flex flex-col items-center gap-8"></div>
+
+    <!-- Next Button (Initially Hidden) -->
+    <div class="fixed bottom-8 right-8">
+      <button id="next-btn"
+        class="next-button opacity-0 transform translate-y-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
+        다음
+      </button>
+    </div>
+  </main>
+
+  <div id="seats-data" data-seats='{{param["data"]["seats"] | safe}}'></div>
+  <script>
+    let teamMap = {
+      "한화 이글스": "hanhwa.png",
+      "두산 베어스": "dusan.png",
+      "KT 위즈": "kt.png",
+      "롯데 자이언츠": "lotte.png",
+      "LG 트윈스": "lg.png",
+      "NC 다이노스": "nc.png",
+      "키움 히어로즈": "kiwoom.png",
+      "삼성 라이온즈": "samsung.png",
+      "기아 타이거즈": "kia.png",
+      "SSG 랜더스": "ssg.png",
+    };
+    const params = new URLSearchParams(window.location.search);
+    let event_id = params.get('event_id');
+    let seat_count = 0;
+    let selectedSeatsCount = 0;
+    let nextButton;
+    let seatMapContainer;
+    document.addEventListener('DOMContentLoaded', function () {
+      let box = document.getElementById("section_box");
+      let seats = JSON.parse(document.getElementById('seats-data').getAttribute('data-seats'));
+      console.log(seats);
+
+      seatMapContainer = document.getElementById('seat-map-container');
+      nextButton = document.getElementById('next-btn');
+
+
+      const topRow = document.createElement('div');
+      topRow.className = 'flex justify-center gap-8';
+      topRow.appendChild(createGridContainer(8, 6, 48));
+      topRow.appendChild(createGridContainer(8, 6, 48));
+      topRow.appendChild(createGridContainer(8, 6, 48));
+      topRow.appendChild(createGridContainer(8, 6, 48));
+      seatMapContainer.appendChild(topRow);
+
+      const bottomRow = document.createElement('div');
+      bottomRow.className = 'flex justify-center gap-8';
+      bottomRow.appendChild(createGridContainer(6, 6, 36));
+      bottomRow.appendChild(createGridContainer(6, 6, 36));
+      bottomRow.appendChild(createGridContainer(6, 6, 36));
+      seatMapContainer.appendChild(bottomRow);
+
+      seats.forEach((seat) => {
+        document.getElementById(`seat${seat}`).classList.remove('available');
+      });
+
+      seatMapContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('available')) {
+          e.target.classList.remove('available');
+          e.target.classList.add('selected');
+          selectedSeatsCount++;
+          updateNextButton();
+        } else if (e.target.classList.contains('selected')) {
+          e.target.classList.remove('selected');
+          e.target.classList.add('available');
+          selectedSeatsCount--;
+          updateNextButton();
+        }
+      });
+    });
+
+
+    function updateNextButton() {
+      if (selectedSeatsCount > 0) {
+        nextButton.classList.remove('opacity-0', 'translate-y-4');
+      } else {
+        nextButton.classList.add('opacity-0', 'translate-y-4');
+      }
+    }
+
+    function createGridContainer(rows, cols) {
+      const container = document.createElement('div');
+      container.className = 'grid-container'; // CSS 스타일링을 위한 클래스
+      container.style.display = 'grid';
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`; // 열의 수만큼 자동 분할
+      container.style.gap = '4px'; // 좌석 간의 간격
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const seat = document.createElement('div');
+          seat.className = 'seat available';
+          seat.id = `seat${seat_count++}`;
+          container.appendChild(seat);
+        }
+      }
+      return container;
+    }
+
+    function drawLayout() {
+    }
+  </script>
+
+</body>
+
+</html>

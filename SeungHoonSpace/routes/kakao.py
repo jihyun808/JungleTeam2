@@ -33,23 +33,22 @@ def redirect_page():
     )
     user_info = user_info_resp.json()
     print(user_info)
-    kakao_id = user_info['id']
-    session['kakao_id'] = kakao_id
+    session['id'] =  user_info['id']
     session['platform'] = 'kakao'
 
-    user = current_app.config['mongo'].users.find_one({'platform': 'kakao', 'id': str(kakao_id)})
+    user = current_app.config['mongo'].users.find_one({'platform': 'kakao', 'id': str(id)})
 
     if user and user.get("username"):
         return redirect("/?login=success")
     else:
         if not user:
-            current_app.config['mongo'].users.insert_one({'platform': 'kakao', 'id': str(kakao_id)})
+            current_app.config['mongo'].users.insert_one({'platform': 'kakao', 'id': str(id)})
         return render_template('signup_username.html', platform="kakao")
 
 @blueprint.route("/edit_name", methods=['GET','POST'])
 def edit_name():
-    kakao_id = session.get('kakao_id')
-    if not kakao_id:
+    id = session.get('id')
+    if not id:
         return redirect("/kakao/authorize")
 
     if request.method == 'POST':
@@ -60,7 +59,7 @@ def edit_name():
 
         if username:
             current_app.config['mongo'].users.update_one(
-                {'platform': 'kakao', 'id': str(kakao_id)},
+                {'platform': 'kakao', 'id': str(id)},
                 {'$set': {'username': username}}
             )
             
@@ -87,6 +86,7 @@ def logout():
     }
     resp = requests.post(current_app.config["kakao"]["kapi_host"] + "/v1/user/logout", headers=headers)
     session.pop('access_token', None)
+    session.pop('id', None)
     session.pop('platform', None)
     return resp.text
 
@@ -97,5 +97,6 @@ def unlink():
     }
     resp = requests.post(current_app.config["kakao"]["kapi_host"] + "/v1/user/unlink", headers=headers)
     session.pop('access_token', None)
+    session.pop('id', None)
     session.pop('platform', None)
     return resp.text
