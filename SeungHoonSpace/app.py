@@ -38,6 +38,14 @@ def signup():
 def signin():
     return render_template('signin.html')
 
+@app.route('/mypage')
+def mypage():
+    return render_template('mypage.html')
+    
+@app.route('/ticket_detail')
+def ticket_detail():
+    return render_template('ticket_detail.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=35565)
     print("server started")
