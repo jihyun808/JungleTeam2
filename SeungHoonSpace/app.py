@@ -44,6 +44,7 @@ def mypage():
     
 @app.route('/ticket_detail')
 def ticket_detail():
+    param = {}
     param['data'] = {
     "event_id": 1,
     "stadium": "광주의 아들 김도영",
@@ -60,7 +61,7 @@ def ticket_detail():
     "team1": "403호",
     "team2": "401호"
     }
-    return render_template('ticket_detail.html')
+    return render_template('ticket_detail.html', param=param)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=35565)
