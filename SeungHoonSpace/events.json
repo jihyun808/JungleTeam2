@@ -1,0 +1,324 @@
+[{
+    "event_id": 4,
+    "booking": {
+        "areas": {
+            "1": {
+                "price": 8000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "외야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": [
+                    {
+                        "seat_id": 1,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 2,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 3,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    }
+                ]
+            },
+            "2": {
+                "price": 12000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "1루 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": []
+            },
+            "3": {
+                "price": 15000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "중앙 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": [
+                    {
+                        "seat_id": 4,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 5,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 6,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    }
+                ]
+            },
+            "4": {
+                "price": 20000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "3루 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": []
+            }
+        },
+        "dead_line": {
+            "year": 2025,
+            "month": 8,
+            "day": 18,
+            "hour": 23,
+            "min": 59
+        }
+    },
+    "info": {
+        "stadium": "잠실",
+        "date": {
+            "year": 2025,
+            "month": 8,
+            "day": 19,
+            "hour": 18,
+            "min": 30
+        },
+        "team1": "LG 트윈스",
+        "team2": "롯데 자이언츠"
+    }
+},{
+    "event_id": 2,
+    "booking": {
+        "areas": {
+            "1": {
+                "price": 8000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "외야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": [
+                    {
+                        "seat_id": 1,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 2,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 3,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    }
+                ]
+            },
+            "2": {
+                "price": 12000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "1루 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": []
+            },
+            "3": {
+                "price": 15000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "중앙 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": [
+                    {
+                        "seat_id": 4,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 5,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    },
+                    {
+                        "seat_id": 6,
+                        "platform": "",
+                        "id": "",
+                        "deadline": {
+                            "year": 2025,
+                            "month": 8,
+                            "day": 18,
+                            "hour": 23,
+                            "min": 59
+                        },
+                        "isBooked": false
+                    }
+                ]
+            },
+            "4": {
+                "price": 20000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "3루 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "min": 0
+                },
+                "seats": []
+            }
+        },
+        "dead_line": {
+            "year": 2025,
+            "month": 8,
+            "day": 18,
+            "hour": 23,
+            "min": 59
+        }
+    },
+    "info": {
+        "stadium": "잠실",
+        "date": {
+            "year": 2025,
+            "month": 8,
+            "day": 19,
+            "hour": 18,
+            "min": 30
+        },
+        "team1": "한화 이글스",
+        "team2": "KIA 타이거즈"
+    }
+}
+]

@@ -6,7 +6,7 @@ blueprint = Blueprint('jungle', __name__, url_prefix='/jungle');
 
 def hashing(data):
     hash_object = hashlib.sha256()
-    hash_object.update((str(data['id']) + str(data['password'] + current_app.config['jungle']['sha-secret-key'])).encode())
+    hash_object.update((str(data['id']) + str(data['password']) + str(current_app.config['jungle']['sha-secret-key'])).encode())
     return hash_object.hexdigest()
 
 @blueprint.route('/signup', methods=['GET','POST'])    
@@ -57,6 +57,7 @@ def signup():
         if (current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']})): # 이미 계정이 있음.
             session['platform'] = 'jungle'
             session['id'] = data['id']
+            session['username'] = data['username']
             if (current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']}).get('username')): #이름이 있음
                 return redirect('/')
             return render_template('signup_username.html', platform='jungle') #이름이 없으면 닉네임 입력 창으로 이동
@@ -68,6 +69,7 @@ def signup():
     current_app.config['mongo'].users.insert_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']}) #저장
     session['id'] = data['id']
     session['platform'] = 'jungle'
+    session['username'] = data['username']
     return render_template('signup_username.html', platform='jungle')
 
 @blueprint.route('/signin', methods=['GET','POST'])
@@ -78,13 +80,23 @@ def signin():
         'hashed_password': ""
         }
     data['hashed_password'] = hashing(data)
-    
-    if (current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']})):
+    user = current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']})
+    if (user):
         session['id'] = data['id']
         session['platform'] = 'jungle'
+        if (user.get('username') == None): #유저네임이 없다면
+            return render_template('signup_username.html',platform='jungle')
+        
+        session['username'] = data.get('username')
         return redirect('/?login=success')
     
     return render_template('signin.html', platform='jungle', message='ID 또는 비밀번호가 일치하지 않습니다.')
+
+@blueprint.route('/signout', methods=['GET','POST'])
+def signout():
+    session.pop('id',None)
+    session.pop('platform',None)
+    return redirect('/')
 
 
 @blueprint.route('/edit_name', methods=['GET','POST'])
@@ -109,4 +121,3 @@ def edit_name():
             return render_template('signup_username.html', error="닉네임을 입력해주세요.", platform="jungle")
 
     return render_template('signup_username.html', error="잘못된 전송 방식입니다.", platform='jungle')
-    
