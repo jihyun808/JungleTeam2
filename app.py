@@ -41,31 +41,31 @@ def signin():
     return render_template('signin.html')
 
 @app.route('/mypage')
-def signin():
+def mypage():
     return render_template('mypage.html')
 
 @app.route('/payment_info')
-def signin():
+def payment_info():
     return render_template('payment_info.html')
 
 @app.route('/payment_fin')
-def signin():
+def payment_fin():
     return render_template('payment_fin.html')
 
 @app.route('/select_area')
-def signin():
+def select_area():
     return render_template('select_area.html')
 
 @app.route('/select_seat')
-def signin():
+def select_seat():
     return render_template('select_seat.html')
 
 @app.route('/signup_nickname')
-def signin():
+def signup_nickname():
     return render_template('signup_nickname.html')
 
 @app.route('/ticket_detail')
-def signin():
+def ticket_detail():
     return render_template('ticket_detail.html')
 
 
