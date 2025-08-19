@@ -44,6 +44,22 @@ def mypage():
     
 @app.route('/ticket_detail')
 def ticket_detail():
+    param['data'] = {
+    "event_id": 1,
+    "stadium": "광주의 아들 김도영",
+    "price": 800,
+    "area_name": "내야 1루",
+    "date": {
+        "year": 2025,
+        "month": 8,
+        "day": 25,
+        "hour": 18,
+        "min": 30
+    },
+    "seats": [1, 2, 3],
+    "team1": "403호",
+    "team2": "401호"
+    }
     return render_template('ticket_detail.html')
 
 if __name__ == '__main__':
