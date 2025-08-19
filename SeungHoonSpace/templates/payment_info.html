@@ -42,7 +42,11 @@
 
     </style>
 </head>
+<div id="seats-data" data-seats='{{param["data"] | safe}}'></div>
 <body class="min-h-screen bg-gray-50">
+    <!-- 캡챠 스크립트 -->
+    <script src="captcha-modal.js"></script>
+
     <!-- Header Navigation -->
     <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
@@ -85,30 +89,40 @@
                 <div class="space-y-4 mb-8">
                     <div class="flex justify-between">
                         <span class="text-gray-600 font-medium">예매 정보</span>
-                        <span class="text-gray-900 info">롯데 vs 두산</span>
+                        <span class="text-gray-900 info">
+                            {{ param['data']['team1'] }} vs {{ param['data']['team2'] }}
+                        </span>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600 font-medium">일시</span>
-                        <span class="text-gray-900 date">2024-07-15 18:30</span>
+                        <span class="text-gray-900 date">
+                            {% set d = param['data']['date'] %}
+                            <span class="text-gray-900 date">
+                                {{ "%04d-%02d-%02d %02d:%02d"|format(d.year, d.month, d.day, d.hour, d.min) }}
+                             </span>
+                        </span>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600 font-medium">좌석</span>
-                        <span class="text-gray-900 seat">3루 내야 12열 15번</span>
+                        <span class="text-gray-900 seat">
+                            {{ param['data']['area_name'] }} /
+                            {{ param['data']['seats']|join(', ') }}
+                        </span>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600 font-medium">금액</span>
-                        <span class="text-gray-900 font-bold money">35,000원</span>
+                        <span class="text-gray-900 font-bold money">
+                            {{ "{:,}".format(param['data']['price']) }}원
+                        </span>
                     </div>
                 </div>
                 <div class="mb-10 text-center text-gray-700 text-base">
                     결제하시겠습니까?
                 </div>
                 <div class="flex justify-end">
-                    <a href="/paymentFin">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-blue-700 transition-colors">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-blue-700 transition-colors" id="payment-next-btn">
                         확인
                     </button>
-                    </a>
                 </div>
             </div>
         </div>
@@ -164,5 +178,6 @@
 
     <script src="index.js"></script>
     <script src="newsApi.js"></script>
+
 </body>
 </html>
