@@ -634,8 +634,8 @@
         }
         function formatTime(dateObj) {
             const hour = String(dateObj.hour).padStart(2, '0');
-            const min = String(dateObj.min).padStart(2, '0');
-            return `${hour}:${min}`;
+            const minute = String(dateObj.minute).padStart(2, '0');
+            return `${hour}:${minute}`;
         }
 
         document.getElementById("date").textContent = formatDate(data.date);
