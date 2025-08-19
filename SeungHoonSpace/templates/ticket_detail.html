@@ -249,6 +249,7 @@
             padding: 5px 0;
             border-bottom: 1px dotted #b5bef5;
         }
+        
 
         .total {
             font-weight: bold;
@@ -343,7 +344,7 @@
 </head>
 <body class="min-h-screen bg-gray-50">
     <!-- 데베에서 티켓 정보 불러오기 -->
-     <div id="seats-data" data-seats='{{param["data"] | safe}}'></div>
+     <div id="seats-data" data-seats='{{param["data"] | tojson | safe}}'></div>
   <!-- Header Navigation -->
   <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50">
       <div class="container mx-auto px-4 py-4">
@@ -402,8 +403,9 @@
                 </a> -->
                 
                 <a href="/mypage" class="sidebar-menu-item flex items-center space-x-3 px-4 py-3 rounded-lg text-white bg-white bg-opacity-20">
+            <div class="mt-8 pt-6 border-t border-white border-opacity-20">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m5 0h2a2 2 0 002-2V7a2 2 0 00-2-2h-2m-5 4h4"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                     </svg>
                     <span class="font-medium">예매내역</span>
                 </a>
@@ -454,9 +456,9 @@
                 <!-- 예약 내역 내용 -->
 <div class="ticket-container">
     <div class="header">
-        <h1>KIA 타이거즈 vs 삼성 라이온즈</h1>
+        <h1 id="matching"></h1>
         <div class="info-item">
-             <div class="info-label" style="color: #a8b4e7;">예약번호 <span class="info-value highlight">KIA240825001</span></div>
+             <div class="info-label" style="color: #a8b4e7;">예약번호 <span class="info-value highlight" id="reservation-num">KIA240825001</span></div>
         </div>
         </div>
 
@@ -506,7 +508,9 @@
             <div class="receipt-section">
                 <div class="receipt-title">결제 영수증</div>
                 <div class="receipt-item">
-                    <span id="area"></span> × <span id="count"></span>
+                    <div>
+                    <span id="area"></span>×<span id="count"></span>
+                    </div>
                     <span id="price"></span>
                 </div>
                 <div class="receipt-item total">
@@ -618,6 +622,10 @@
 
         // 상세정보 값 삽입
         document.getElementById("stadium").textContent = data.stadium;
+
+        // 매칭
+        const matchingElements = document.querySelectorAll('#matching');
+        matchingElements.forEach(el => el.textContent = data.team1 + ' vs ' + data.team2);
 
         // 구역 정보
         const areaElements = document.querySelectorAll('#area');
