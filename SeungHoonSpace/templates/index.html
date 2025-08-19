@@ -34,6 +34,49 @@
                 opacity: .5;
             }
         }
+        .main-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }       
+    
+            /* main을 위쪽으로 이동 */
+            main {
+                order: 1;
+                width: 100%;
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+                padding-bottom: 0;
+            }
+    
+            /* aside를 아래쪽으로 이동 */
+            aside {
+                order: 2;
+                width: 100%;
+            }
+        }
+        .grid.grid-cols-1.md\:grid-cols-3.gap-6 {
+            justify-content: center;
+            justify-items: center;
+        }
+        /* 뉴스 섹션 전체 중앙정렬 */
+        section.p-6.news-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .max-w-4xl {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 더보기 버튼은 이미 중앙정렬되어 있음 */
     </style>
 </head>
 
@@ -85,7 +128,8 @@
         </div>
     </header>
 
-    <div class="flex">
+    <!-- 왼쪽 사이드바  -->
+    <div class="main-content">    
         <!-- 왼쪽 사이드바 -->
         <aside class="w-64 bg-gray-50 min-h-screen p-4 border-r">
             <div class="space-y-6">
@@ -309,7 +353,7 @@
             </section>
 
             <!-- 뉴스 섹션 -->
-            <section class="p-6">
+            <section class="p-6 news-section">
                 <div class="max-w-4xl">
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
