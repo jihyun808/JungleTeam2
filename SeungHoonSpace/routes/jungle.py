@@ -25,7 +25,6 @@ def signup():
     }
     
     id_overlap = current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id']})
-    
     if (len(data['id']) < 6): #id 글자수 부족
         param['access'] = False
         param['code'] = 'lack_of_id_length'
@@ -57,8 +56,8 @@ def signup():
         if (current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']})): # 이미 계정이 있음.
             session['platform'] = 'jungle'
             session['id'] = data['id']
-            session['username'] = data['username']
             if (current_app.config['mongo'].users.find_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']}).get('username')): #이름이 있음
+                session['username'] = id_overlap.get('username')
                 return redirect('/')
             return render_template('signup_username.html', platform='jungle') #이름이 없으면 닉네임 입력 창으로 이동
         param['access'] = False
@@ -69,7 +68,6 @@ def signup():
     current_app.config['mongo'].users.insert_one({'platform':'jungle','id':data['id'],'password':data['hashed_password']}) #저장
     session['id'] = data['id']
     session['platform'] = 'jungle'
-    session['username'] = data['username']
     return render_template('signup_username.html', platform='jungle')
 
 @blueprint.route('/signin', methods=['GET','POST'])
@@ -107,7 +105,6 @@ def edit_name():
 
     if request.method == 'POST':
         username = request.form.get('username')
-        print(username);
         if (current_app.config['mongo'].users.find_one({'username':username})):
             return render_template('signup_username.html', error="닉네임 중복.", platform="jungle")
 

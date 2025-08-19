@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import json
 blueprint = Blueprint('book', __name__, url_prefix='/booking')
 
-def CompareTime(t):
+def CompareTime(t): #입력값 현재 시간을 지났다면 False 안 지났다면 True
     try:
         input_datetime = datetime(
             t.get("year"),
@@ -42,7 +42,7 @@ def booking():
     
     return render_template('booking.html', param=param)
 
-@blueprint.route('/select_seat')
+@blueprint.route('/select_seat', methods=['POST','GET'])
 def select_seat():
     param = {
         "message":"",
@@ -51,8 +51,9 @@ def select_seat():
     }
     event_id = request.values.get('event_id')
     area_num = request.values.get('area_num')
+    seats = json.loads(request.values.get('selection'))
     #조회 성공 유무
-    event = current_app.config['mongo'].events.find_one({"event_id":session.get('event_id')})
+    event = current_app.config['mongo'].events.find_one({"event_id":int(event_id)})
     if (not area_num or not event_id):
         session['message'] = "세션이 만료되었습니다."
         return redirect('/booking')
@@ -78,8 +79,8 @@ def select_seat():
         return redirect('/booking')
     
     #좌석 확인
-    seats = request.form.get('seats')
     checked_seats = area.get('seats')
+    seats = [int(seat) for seat in seats]
     if (seats == None):
         session['message'] = "잘못된 seats"
         return redirect('/booking')
@@ -87,12 +88,14 @@ def select_seat():
         session['message'] = "잘못된 checked_seats"
         return redirect('/booking')
     for c in checked_seats:
-        if (CompareTime(c['deadline']) and not c['isBooked']):
-            session['message'] = "다른 회원이 예매 중인 좌석입니다."
-            return render_template('select_seat.html', param=param)
-        if c['seat_id'] in seats:
-            session['message'] = "이미 예매된 좌석입니다."
-            return render_template('select_seat.html', param=param)
+        if (c['seat_id'] in seats):
+            if (CompareTime(c['deadline']) and not c['isBooked']):
+                param['message'] = "다른 회원이 예매 중인 좌석입니다."
+                return redirect(f'/booking/select_area?event_id={event_id}&area_num={area_num}&message={param["message"]}')
+            elif c['isBooked']:
+                param['message'] = "예매된 좌석입니다."
+                return redirect(f'/booking/select_area?event_id={event_id}&area_num={area_num}&message={param["message"]}')
+            
     
     #좌석 예매로 이동 / 예약 마감기한 설정
     now = datetime.now() + timedelta(minutes=3)
@@ -164,7 +167,12 @@ def select_event():
             start_time = start_time.get('1')
     if (start_time):
         session['event_id'] = event_id
-        param["data"]['event'] = json.dumps(event['booking']['areas'], ensure_ascii=False)
+        event_data = {}
+        event_data = event['booking']['areas']
+        for i in range(1,4):
+            event_data[f"{i}"]["occupancy"] = len([seat['seat_id'] for seat in event_data[f"{i}"].get('seats') if (not CompareTime(seat['deadline']) or seat['isBooked'])])
+            del event_data[f"{i}"]['seats']
+        param['data']['event'] = json.dumps(event_data, ensure_ascii=False)
         param["data"]['team'] = event['info']['team1']
         return render_template('select_area.html',param=param) #경기 선택 됨
     else:

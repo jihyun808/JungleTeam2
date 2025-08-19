@@ -14,7 +14,7 @@
     <div class="container mx-auto px-4 py-4">
       <!-- Logo Section -->
       <div class="flex items-center justify-between mb-4">
-        <a href="/index" class="flex items-center space-x-2">
+        <a href="/" class="flex items-center space-x-2">
           <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,12 +29,12 @@
       <nav class="flex items-center justify-between text-sm">
         <!-- Left side -->
         <div class="flex items-center gap-2">
-          <a href="/index" class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">홈</a>
+          <a href="/" class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">홈</a>
           <a href="/booking" class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">예매</a>
         </div>
         <!-- Right side -->
         <div class="flex items-center gap-6">
-          <a href="/login"
+          <a href="/signin"
             class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 text-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -146,17 +146,17 @@
       let event = JSON.parse(document.getElementById('event-data').getAttribute('data-event'));
       let team = document.getElementById('team-data').getAttribute('data-team');
       let event_id = new URLSearchParams(window.location.search).get('event_id');
+      console.log(event);
       for (let i = 1; i < 5; i++) {
         let area = event[`${i}`];
         let time = area.booking_start;
-        console.log(area);
         let section = document.createElement('div');
         section.innerHTML =
           `<h2 class="text-2xl font-bold mb-2">${area.name}</h2>
           <p class="text-lg text-blue-600 font-semibold mb-4">${area.price}원</p>
           <div class="space-y-2 text-gray-700 flex-grow">
             <p><strong>예매 시작:</strong> ${formatTime(time.hour,time.min)}</p>
-            <p><strong>남은 좌석:</strong> ${area.occupancy} / ${area.capacity}석</p>
+            <p><strong>남은 좌석:</strong> ${area.capacity - area.occupancy} / ${area.capacity}석</p>
           </div>
           <a id="link-1" href="#" class="mt-4 block text-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">좌석 선택</a>`
         section.className = `bg-white p-6 rounded-xl shadow-md border flex flex-col`

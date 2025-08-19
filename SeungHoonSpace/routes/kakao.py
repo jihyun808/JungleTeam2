@@ -32,17 +32,15 @@ def redirect_page():
         headers={'Authorization': f'Bearer {access_token}'}
     )
     user_info = user_info_resp.json()
-    print(user_info)
     session['id'] =  user_info['id']
     session['platform'] = 'kakao'
 
-    user = current_app.config['mongo'].users.find_one({'platform': 'kakao', 'id': str(id)})
-
+    user = current_app.config['mongo'].users.find_one({'platform': 'kakao', 'id': str(user_info['id'])})
     if user and user.get("username"):
         return redirect("/?login=success")
     else:
         if not user:
-            current_app.config['mongo'].users.insert_one({'platform': 'kakao', 'id': str(id)})
+            current_app.config['mongo'].users.insert_one({'platform': 'kakao', 'id': str(user_info['id'])})
         return render_template('signup_username.html', platform="kakao")
 
 @blueprint.route("/edit_name", methods=['GET','POST'])

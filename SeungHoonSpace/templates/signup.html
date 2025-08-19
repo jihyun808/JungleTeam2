@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time-Pitch - 회원가입</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+    <title>회원가입 - Time-Pitch</title>
+    <link rel="stylesheet" href=" {{ url_for('static',filename='signup.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -42,7 +42,8 @@
     <!-- Header Navigation -->
     <header class="border-b bg-white/95 backdrop-blur sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center justify-between mb-4">
                 <a href="/" class="flex items-center space-x-2">
                     <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,27 +54,36 @@
                     </div>
                     <h1 class="text-2xl font-bold text-blue-600">Time-Pitch</h1>
                 </a>
-                <nav class="flex items-center space-x-6">
-                    <a href="/booking" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">예매</a>
-                    <button class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
-                        onclick="window.location.href='/signin'">
+            </div>
+            <!-- Navigation Section -->
+            <nav class="flex items-center justify-between text-sm">
+                <!-- Left side -->
+                <div class="flex items-center gap-2">
+                    <a href="/" class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">홈</a>
+                    <a href="/booking"
+                        class="text-base px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 font-medium">예매</a>
+                </div>
+                <!-- Right side -->
+                <div class="flex items-center gap-6">
+                    <a href="/signin"
+                        class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
                             </path>
                         </svg>
                         로그인
-                    </button>
-                    <button class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800"
-                        onclick="window.location.href='/mypage'">
+                    </a>
+                    <a href="/mypage"
+                        class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                         마이페이지
-                    </button>
-                </nav>
-            </div>
+                    </a>
+                </div>
+            </nav>
         </div>
     </header>
 
@@ -81,14 +91,21 @@
         <div class="form-container">
             <h2>회원가입</h2>
             <form id="signup-form" method="POST" action="/jungle/signup">
-                <input id="signup-email" name="id" type="id" placeholder="아이디">
+                <input id="signup-id" name="id" type="id" placeholder="아이디">
                 <input id="signup-password" name="password" type="password" placeholder="비밀번호">
-                <button type="submit">가입하기</button>
-                <!-- 아이디랑 닉네임은 중복 안되게 -->
+
+                <!-- 파란 가입하기 버튼 -->
+                <button type="submit" class="submit-btn">가입하기</button>
             </form>
-        </div>
-        <div class="other-sign">
-            <button class="signup-kakao" type="button" onclick="kakaoLogin()">카카오로 시작하기</button>
+
+            <!-- 구분선 -->
+            <div class="divider"><span>또는</span></div>
+
+            <!-- 카카오 버튼 (중첩된 a 제거, onclick으로 이동 처리) -->
+            <button class="signup-kakao" type="button" onclick="kakaoLogin()">
+                <!-- href='/signup_nickname.html' 이거 백엔드에서 확인하기 링크 맞는지 -->
+                카카오로 시작하기
+            </button>
         </div>
     </div>
 
@@ -112,7 +129,7 @@
                 <div>
                     <h4 class="font-bold mb-4">서비스</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/booking" class="hover:text-white transition-colors">티켓 예매</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">티켓 예매</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">구단 순위</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">선수 기록</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">경기 일정</a></li>
@@ -142,17 +159,10 @@
         </div>
     </footer>
 
-    <!-- 카카오 API -->
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="{{ url_for('static', filename='kakao.js') }}"></script>
-
 </body>
 
-{% if param %}
-    {% if not param.access %}
-        <script>
-            alert("{{ param.message }}");
-        </script>
-    {% endif %}
-{% endif %}
+<!-- 카카오 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="{{ url_for('static', filename='kakao.js') }}"></script>
+
 </html>

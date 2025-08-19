@@ -34,19 +34,6 @@
                 opacity: .5;
             }
         }
-
-        .relative.z-10.container.mx-auto.px-4.h-full.flex.items-center {
-            background-size: cover;
-            overflow: hidden;
-            display: flex;
-            background-repeat: no-repeat;
-        }
-        .banner-slide.absolute.inset-0.bg-gradient-to-r.from-green-600.to-teal-700.text-white.hidden {
-            background-size: cover;
-            overflow: hidden;
-            display: flex;
-            background-repeat: no-repeat;
-        }
     </style>
 </head>
 
@@ -86,7 +73,6 @@
                         </svg>
                         로그인
                     </a>
-                    <a href="/mypage">
                     <button class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -94,7 +80,6 @@
                         </svg>
                         마이페이지
                     </button>
-                    </a>
                 </div>
             </nav>
         </div>
@@ -193,24 +178,23 @@
             <section class="relative overflow-hidden">
                 <div class="relative h-96" id="bannerContainer">
                     <!-- 배너 1 -->
-                    <div class="banner-slide absolute inset-0 bg-gradient-to-r text-white">
-                        <div class="absolute inset-0"></div>
-                        <div class="relative z-10 container mx-auto px-4 h-full flex items-center" style="background-image: url('https://i.pinimg.com/1200x/66/35/c8/6635c80e696c0c213530b974002b93e8.jpg');">
-                            <div class="max-w-2xl">
-                                <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">구역별 순차 오픈으로 공정한 예매</h2>
-                                <p class="text-lg md:text-xl opacity-90">4개 구역을 3분 간격으로 오픈하여 트래픽을 분산시키고 모두에게 공평한 기회를 제공합니다.</p>
-                                <a href="/booking" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 배너 2 -->
-                    <div class="banner-slide absolute inset-0 text-white hidden" style="background-image: url('https://i.pinimg.com/736x/46/af/12/46af126d98ac0d8978ff977b25de581b.jpg');">
+                    <div class="banner-slide absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
                         <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="relative z-10 container mx-auto px-4 h-full flex items-center justify-end text-right">
+                        <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
                             <div class="max-w-2xl">
-                                <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">매크로와 다중 구매 방지</h2>
-                                <p class="text-lg md:text-xl opacity-90">서버 안정성과 공정성을 확보하여, 진정한 팬들이 티켓을 구매할 수 있는 환경을 만듭니다.</p>
-                                <a href="/booking" class="mt-4 inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600">예매하러가기</a>
+                                <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">암표 없는 공정한 예매</h2>
+                                <p class="text-lg md:text-xl mb-4 opacity-90">구역별 3분 간격 시스템으로 모든 팬에게 공평한 기회를</p>
+                                <p class="text-base mb-6 opacity-80 leading-relaxed">Time-Pitch는 티켓 암표와 몰림 현상을 방지하여 진정한
+                                    야구 팬들이 공정하게 티켓을 구매할 수 있도록 합니다.</p>
+                                <button
+                                    class="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    지금 예매하기
+                                </button>
                             </div>
                         </div>
                     </div>
