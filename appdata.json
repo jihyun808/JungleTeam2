@@ -1,0 +1,19 @@
+{
+    "domain": "http://localhost:35565/",
+    "mongo": {
+        "uri": "mongodb+srv://hoondo:12345@mycluster.9nup4zv.mongodb.net/?retryWrites=true&w=majority&appName=myCluster",
+        "port": 27017
+    },
+    "kakao": {
+        "domain": "http://localhost:35565/kakao",
+        "rest_key": "bcf125a8851107c5ebbb5e58da688c63",
+        "secret_key": "mahoushoujomarinatedporkribs",
+        "kauth_host": "https://kauth.kakao.com",
+        "kapi_host": "https://kapi.kakao.com"
+    },
+    "jungle": {
+        "sha-secret-key": "oniongarlicpotato",
+        "domain": "http://localhost:35565/jungle",
+        "key_dict": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=~!@#$%^&*()_+"
+    }
+}
