@@ -1,0 +1,10 @@
+
+/* Tiny tweaks for booking page */
+:root { --radius: 12px; }
+.card { border-radius: var(--radius); }
+
+.img_logo {
+display: inline-block;
+vertical-align: middle;
+object-position: center center;
+}

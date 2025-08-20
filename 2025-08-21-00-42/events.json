@@ -1,0 +1,82 @@
+{
+    "event_id": 1,
+    "booking": {
+        "areas": {
+            "1": {
+                "price": 8000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "외야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "seats": []
+            },
+            "2": {
+                "price": 12000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "1루 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "seats": []
+            },
+            "3": {
+                "price": 15000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "중앙 내야",
+                "booking_start": {
+                    "year": 2025,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "seats": []
+            },
+            "4": {
+                "price": 20000,
+                "capacity": 300,
+                "occupancy": 0,
+                "name": "3루 내야",
+                "booking_start": {
+                    "year": 2024,
+                    "month": 8,
+                    "day": 10,
+                    "hour": 12,
+                    "minute": 0
+                },
+                "seats": []
+            }
+        },
+        "deadline": {
+            "year": 2026,
+            "month": 8,
+            "day": 18,
+            "hour": 23,
+            "minute": 59
+        }
+    },
+    "info": {
+        "stadium": "잠실",
+        "date": {
+            "year": 2025,
+            "month": 8,
+            "day": 19,
+            "hour": 18,
+            "minute": 30
+        },
+        "team1": "LG 트윈스",
+        "team2": "롯데 자이언츠"
+    }
+}

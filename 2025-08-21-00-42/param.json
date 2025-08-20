@@ -1,0 +1,16 @@
+{
+    "event_id": 1,
+    "stadium": "광주-기아 챔피언스 필드",
+    "price": 8000,
+    "area_name": "내야 1루",
+    "date": {
+        "year": 2025,
+        "month": 8,
+        "day": 25,
+        "hour": 18,
+        "minute": 30
+    },
+    "seats": [1, 2, 3],
+    "team1": "KIA 타이거즈",
+    "team2": "두산 베어스"
+}
