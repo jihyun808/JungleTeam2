@@ -60,23 +60,6 @@
                 width: 100%;
             }
         }
-        .grid.grid-cols-1.md\:grid-cols-3.gap-6 {
-            justify-content: center;
-            justify-items: center;
-        }
-        /* 뉴스 섹션 전체 중앙정렬 */
-        section.p-6.news-section {
-            display: flex;
-            justify-content: center;
-        }
-
-        .max-w-4xl {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* 더보기 버튼은 이미 중앙정렬되어 있음 */
     </style>
 </head>
 
@@ -353,8 +336,8 @@
             </section>
 
             <!-- 뉴스 섹션 -->
-            <section class="p-6 news-section">
-                <div class="max-w-4xl">
+            <section class="p-6">
+                <div class="max-w-4xl" id="newsSection">
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
                             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -366,7 +349,7 @@
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <!-- 뉴스 1 -->
-                            <div
+                            <div id="news1"
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/kia-tigers-celebration.png" alt="KIA 타이거즈 우승 소식"
@@ -390,7 +373,7 @@
                             </div>
 
                             <!-- 뉴스 2 -->
-                            <div
+                            <div id="news2"
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/young-baseball-rookie.png" alt="신인 선수 활약"
@@ -414,7 +397,7 @@
                             </div>
 
                             <!-- 뉴스 3 -->
-                            <div
+                            <div id="news3"
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/baseball-postseason-announcement.png" alt="포스트시즌 일정"
