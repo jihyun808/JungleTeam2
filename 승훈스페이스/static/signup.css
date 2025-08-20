@@ -1,0 +1,188 @@
+/* 회원가입 창 css */
+
+/* 전체 화면 중앙 정렬 */
+body > .middle-object {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  gap: 20px;
+}
+
+body > .nickname-middle {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  gap: 20px;
+}
+
+/* 앵커태그 */
+a { text-decoration: none; color: inherit; }
+a:hover { text-decoration: none; }
+
+/* 회원가입 폼 컨테이너 */
+.form-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+  text-align: center;
+  width: 448px;
+}
+
+/* 제목 */
+.form-container h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* 입력창 */
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.form-container input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+}
+
+/* 파란 '가입하기' 버튼 (다른 버튼과 충돌 방지) */
+.form-container .submit-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #4f74ff;       /* 살짝 밝은 톤 */
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.form-container .submit-btn:hover { background: #3f63ec; }
+
+/* 구분선 (박스 안) */
+.divider {
+  position: relative;
+  margin: 20px 0 10px;
+  text-align: center;
+  line-height: 1;
+}
+.divider span {
+  position: relative;
+  padding: 0 10px;
+  background: #fff;          /* .form-container 배경과 동일 */
+  color: #666;
+  font-size: 14px;
+  z-index: 1;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 40px);   /* 텍스트 좌우 선 길이 */
+  height: 1px;
+  background: #ddd;
+  transform: translateY(-50%);
+}
+.divider::before { left: 0; }
+.divider::after  { right: 0; }
+
+/* 카카오 버튼 (폼 박스 내부) */
+.form-container .signup-kakao,
+.form-container a.signup-kakao {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #FEE500;
+  color: #3C1E1E;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-flex;      /* a / button 둘 다 정렬 */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+  margin-top: 8px;
+}
+.form-container .signup-kakao:hover,
+.form-container a.signup-kakao:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,.06);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 20px;
+  }
+  .divider::before,
+  .divider::after {
+    width: calc(50% - 36px);
+  }
+  body > .flex {
+    min-height: calc(100vh - 150px);
+    padding: 20px 0;
+  }
+}
+
+/* 마이페이지 css */
+.middle-div { display: flex; gap: 20px; margin: 50px 100px 100px; }
+.sidebar { width: 250px; flex-shrink: 0; }
+.content { flex: 1; }
+
+.reservation-box {
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+  padding: 30px 20px;
+  border-radius: 12px;
+  margin: 15px 0 100px;
+}
+#welcome-ment { margin-bottom: 20px; font-size: 24px; font-weight: 700; }
+.card-body { margin: 10px 0; }
+
+.reservation-card {
+  display: flex;
+  border: .5px solid #000;
+  border-radius: 5px;
+  margin: 30px 20px;
+  width: 550px;
+  height: 120px;
+}
+.left-box2 {
+  width: 120px;
+  border-right: .5px solid #000;
+  background: url('https://i.namu.wiki/i/nhKvnqKXbs7dbPMggKos010RqfYHxUoKgd4GOPjaN8HICce5HXZo6_zAQJPO8SNd-tMEthvTehq7ef-jzuRoww.svg') center/80% no-repeat;
+}
+.left-box1 {
+  width: 120px;
+  border-right: .5px solid #000;
+  background: url('https://i.namu.wiki/i/B9hIQukP-418N9W-5o6WddUuxmemYuBIZ65-xMHmRK4hDhipAtFQikphYYlBJ7lr3z0POdWs4n1azM-KOHe3qQ.svg') center/80% no-repeat;
+}
+.right-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  justify-content: space-between;
+  margin: 0 15px;
+}

@@ -34,32 +34,6 @@
                 opacity: .5;
             }
         }
-        .main-content {
-            display: flex;
-            flex-direction: row;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }       
-    
-            /* main을 위쪽으로 이동 */
-            main {
-                order: 1;
-                width: 100%;
-                min-height: auto;
-                border-right: none;
-                border-bottom: 1px solid #e5e7eb;
-                padding-bottom: 0;
-            }
-    
-            /* aside를 아래쪽으로 이동 */
-            aside {
-                order: 2;
-                width: 100%;
-            }
-        }
     </style>
 </head>
 
@@ -99,7 +73,7 @@
                         </svg>
                         로그인
                     </a>
-                    <button class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 text-sm">
+                    <button class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 text-sm" onclick="window.location.href='/mypage'">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -111,8 +85,7 @@
         </div>
     </header>
 
-    <!-- 왼쪽 사이드바  -->
-    <div class="main-content">    
+    <div class="flex">
         <!-- 왼쪽 사이드바 -->
         <aside class="w-64 bg-gray-50 min-h-screen p-4 border-r">
             <div class="space-y-6">
@@ -337,7 +310,7 @@
 
             <!-- 뉴스 섹션 -->
             <section class="p-6">
-                <div class="max-w-4xl" id="newsSection">
+                <div class="max-w-4xl">
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
                             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -349,7 +322,7 @@
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <!-- 뉴스 1 -->
-                            <div id="news1"
+                            <div
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/kia-tigers-celebration.png" alt="KIA 타이거즈 우승 소식"
@@ -373,7 +346,7 @@
                             </div>
 
                             <!-- 뉴스 2 -->
-                            <div id="news2"
+                            <div
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/young-baseball-rookie.png" alt="신인 선수 활약"
@@ -397,7 +370,7 @@
                             </div>
 
                             <!-- 뉴스 3 -->
-                            <div id="news3"
+                            <div
                                 class="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer group border-0 shadow-md bg-white rounded-lg">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="/baseball-postseason-announcement.png" alt="포스트시즌 일정"
@@ -519,7 +492,14 @@
             });
         });
     </script>
-
 </body>
+
+{% if param %}
+<script>
+  if (`{{param["message"]}}`){
+    (`{{param["message"]}}`);
+  }
+</script>
+{% endif %}
 
 </html>
